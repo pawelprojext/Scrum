@@ -80,6 +80,11 @@ main nav {
     justify-content: space-evenly;
 }
 
+nav a {
+    text-decoration: none;
+    color: white;
+}
+
 .nav-tile {
     width: 100%;
     height: 6rem;
