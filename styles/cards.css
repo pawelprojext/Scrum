@@ -1,0 +1,51 @@
+.cards{
+    width: 100%;
+    padding-top: 3rem;
+}
+
+.card{
+   background-color: #222e40;
+    width: 200px;
+    height: 300px;
+    display: grid;
+    place-content: center;
+    border-radius: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 2rem;
+}
+
+.card:hover{
+    cursor: pointer;
+}
+
+.flag{
+    background-color: #2f3c52;
+    display: flex;
+    padding-top: 3rem;
+}
+
+.flag img{
+    margin: 0 auto;
+}
+
+/* ANIMACJE */
+
+.animate{
+    transform: translateX(130px);
+    transition: transform .5s, opacity 0.5s;
+}
+
+.notAnimate{
+    transform: translateX(0);
+    transition: transform .5s, opacity 0.5s;
+}
+
+.hidden{
+    transform: translateX(3000px);
+}
+
+.showed{
+    transform: translateX(0);
+    transition: transform .5s, opacity 0.5s;
+}
