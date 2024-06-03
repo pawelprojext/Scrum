@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl-PL">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/styles/main.css">
-    <link rel="stylesheet" href="/styles/cards.css">
+    <link rel="stylesheet" type="text/css" href="../styles/main.css">
+    <link rel="stylesheet" type="text/css" href="../styles/cards.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <title>Fishes</title>
 </head>
@@ -12,7 +12,7 @@
     <header>
         <h2>Fishes</h2>   
     </header>
-    <div class="flag"><img src="/flags/englandBig.svg" class="bigFlag" alt="english_flag"></div>
+    <div class="flag"><img src="../flags/englandBig.svg" class="bigFlag" alt="english_flag"></div>
     <h1 class="info">Język angielski</h1>
     <main class="cards">
     <?php
