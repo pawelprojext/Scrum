@@ -2,16 +2,20 @@
     --MainBgc:#2f3c52;
 }
 
+*{
+    box-sizing: border-box;
+}
+
 body {
-    height: 100svh;
+    height: 100vh;
     margin: 0;
     color: white;
     font-family: "Nunito", sans-serif;
     font-weight: 200;
+    background-color: var(--MainBgc);
 }
 
 header {
-    height: 6rem;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -20,7 +24,7 @@ header {
 
 h1 {
     font-weight: 300;
-    padding: 10px;
+    margin:0;
 }
 
 .info{
@@ -28,7 +32,6 @@ h1 {
     color: white;
     background-color: var(--MainBgc);
     margin: 0;
-    /* padding-top: 3rem; */
     text-transform: uppercase;
     font-weight: 800;
 }
@@ -44,11 +47,12 @@ b {
 
 .flex-wrap {
     display: flex;
+    height: 80%;
 }
 
 section, main {
-    height: calc(100vh - 6rem);
-    box-sizing: border-box;
+    margin-top: 5rem;
+    overflow-x: hidden;
     background-color: var(--MainBgc);
 }
 
@@ -62,22 +66,15 @@ section {
 main {
     width: 60%;
     display: flex;
-    /* align-items: center; */
     justify-content: center;
     position: relative;
 }
 
-.displayed{
-    width: 100%;
-    align-items: center;
-}
-
-main nav {
+nav {
     width: 50%;
-    height: 34rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    gap: 3rem;
 }
 
 nav a {
@@ -87,7 +84,6 @@ nav a {
 
 .nav-tile {
     width: 100%;
-    height: 6rem;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -101,58 +97,6 @@ nav a {
     cursor: pointer;
 }
 
-.nav-tile p {
-    margin-left: 2rem;
-}
-
 .hide{
     display: none !important;
-}
-
-.arr{
-    position: absolute;
-    top: 2rem;
-    left: 10rem;
-}
-
-/* KARTKI */
-.cards{
-    display: flex;
-    gap: 5rem;
-}
-
-.card{
-    width: 200px;
-    height: 300px;
-    display: grid;
-    place-content: center;
-    border-radius: 1rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    font-size: 2rem;
-}
-
-.card:hover{
-    cursor: pointer;
-}
-
-/* ANIMACJE */
-
-.animate{
-    transform: translateX(130px);
-    transition: transform .5s, opacity 0.5s;
-}
-
-.notAnimate{
-    transform: translateX(0);
-    transition: transform .5s, opacity 0.5s;
-}
-
-.hidden{
-    transform: translateX(3000px);
-}
-
-.showed{
-    transform: translateX(0);
-    transition: transform .5s, opacity 0.5s;
 }
