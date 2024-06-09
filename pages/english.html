@@ -15,26 +15,10 @@
     <div class="flag"><img src="../flags/englandBig.svg" class="bigFlag" alt="english_flag"></div>
     <h1 class="info">Język angielski</h1>
     <main class="cards">
-    <?php
-        $nouns = [
-            ['english' => 'Fish', 'polish' => 'Ryba'],
-            ['english' => 'Dog', 'polish' => 'Pies'],
-            ['english' => 'Cat', 'polish' => 'Kot'],
-            ['english' => 'Bird', 'polish' => 'Ptak'],
-            ['english' => 'Tree', 'polish' => 'Drzewo'],
-            ['english' => 'Car', 'polish' => 'Samochód'],
-            ['english' => 'House', 'polish' => 'Dom'],
-            ['english' => 'Book', 'polish' => 'Książka'],
-            ['english' => 'Computer', 'polish' => 'Komputer'],
-            ['english' => 'Phone', 'polish' => 'Telefon']
-        ];
-
-        $selectedNoun = $nouns[array_rand($nouns)];
-    ?>
-
-        <div class="card first animate"><?php echo $selectedNoun['polish']; ?></div>
-        <div class="card second"><?php echo $selectedNoun['english']; ?></div>
+        <div class="card first animate"></div>
+        <div class="card second"></div>
     </main>
+    <button id="next">Następne</button>
     <script>
         const question = document.querySelector(".first");
         const answer = document.querySelector(".second");
@@ -42,23 +26,40 @@
         answer.classList.add("hidden");
 
 
-        question.addEventListener("click", ()=>{
-
-        if(IfAnswered == 0){
+        question.addEventListener("click", () => {
             answer.classList.remove("hidden")
             answer.classList.add("showed")
             question.classList.remove("animate")
             question.classList.add("notAnimate");
+        });
 
-        IfAnswered = 1
-        } else if (IfAnswered == 1){
+        answer.addEventListener("click", () => {
             answer.classList.add("hidden")
             answer.classList.remove("showed")
             question.classList.add("animate")
             question.classList.remove("notAnimate");
-            IfAnswered = 0
+        });
+
+
+        const nextButton = document.getElementById("next");
+
+        function fetchWord(table) {
+            fetch(`get_word.php?table=${table}`)
+                .then(response => response.json())
+                .then(data => {
+                    question.innerHTML = data.fr;
+                    answer.innerHTML = data.pl;
+                    answer.classList.add("hidden")
+                    answer.classList.remove("showed")
+                    question.classList.add("animate")
+                    question.classList.remove("notAnimate");
+                })
+                .catch(error => console.error("Error: ", error));
         }
-    });
+
+        nextButton.addEventListener("click", () => fetchWord('angielski'));
+
+        fetchWord('angielski');
     </script>
 </body>
 </html>
