@@ -6,6 +6,11 @@
     box-sizing: border-box;
 }
 
+a{
+    color: inherit;
+    text-decoration: inherit;
+}
+
 body {
     height: 100vh;
     margin: 0;
@@ -77,20 +82,22 @@ nav {
     gap: 3rem;
 }
 
-nav a {
-    text-decoration: none;
-    color: white;
-}
 
 .nav-tile {
-    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: flex-start;
     font-size: 2rem;
     font-weight: 700;
     background-color: #3d4e6b;
     border-radius: 20px;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.nav-tile img{
+    position: absolute;
+    right: 3rem;
 }
 
 .nav-tile:hover{
