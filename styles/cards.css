@@ -13,7 +13,7 @@
     border-radius: 1rem;
     font-weight: 800;
     text-transform: uppercase;
-    font-size: 2rem;
+    font-size: 1.6rem;
     padding: 1rem;
 }
 
@@ -46,6 +46,8 @@
 .hidden{
     transform: translateX(3000px);
 }
+
+
 
 .showed{
     transform: translateX(0);

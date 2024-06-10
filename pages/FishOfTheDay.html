@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../styles/main.css">
+    <link rel="stylesheet" type="text/css" href="../styles/cards.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <title>Fishes</title>
+</head>
+<body>
+    <header>
+        <h2>Fishes</h2>   
+    </header>
+    <div class="flag"><img src="../flags/star.svg" class="bigFlag" alt="english_flag"></div>
+    <h1 class="info">Fiszka dnia</h1>
+    <main class="cards">
+        <div class="card first animate">bike</div>
+        <div class="card second hidden">rower</div>
+        <div class="card third hidden">jabłko</div>
+        <div class="card fourth hidden">drzewo</div>
+    </main>
+
+    <script>
+        const question = document.querySelector(".first");
+        const answers = document.querySelectorAll(".hidden");
+        const answer = "rower"
+
+        question.addEventListener("click", () => {
+            answers.forEach((e, i) =>{
+            e.classList.remove("hidden");
+            e.classList.add("showed");
+
+            e.addEventListener("click", ()=>{
+                if(e.innerHTML == answer){
+                    alert("Fiszka dnia zaliczona!");
+                    location.reload();
+                } else{
+                    alert("Spróbuj jeszcze raz!");
+                }
+            })
+        })
+            question.classList.remove("animate")
+            question.classList.add("notAnimate");
+        });
+
+
+        const nextButton = document.getElementById("next");
+
+        function fetchWord(table) {
+            fetch(`get_word.php?table=${table}`)
+                .then(response => response.json())
+                .then(data => {
+                    question.innerHTML = data.fr;
+                    answer.innerHTML = data.pl;
+                    answer.classList.add("hidden")
+                    answer.classList.remove("showed")
+                    question.classList.add("animate")
+                    question.classList.remove("notAnimate");
+                })
+                .catch(error => console.error("Error: ", error));
+        }
+
+        nextButton.addEventListener("click", () => fetchWord('angielski'));
+
+        fetchWord('angielski');
+    </script>
+</body>
+</html>
