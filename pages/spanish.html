@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../styles/main.css">
+    <link rel="stylesheet" type="text/css" href="../styles/cards.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <title>Fishes</title>
+</head>
+<body>
+    <header>
+        <a href="../index.html">
+            <h2>Fishes</h2>   
+        </a>
+    </header>
+    <div class="flag"><img src="../flags/spainBig.svg" class="bigFlag" alt="spanish_flag"></div>
+    <h1 class="info">Język hiszpański</h1>
+    <main class="cards">
+        <div class="card first animate"></div>
+        <div class="card second"></div>
+    </main>
+
+    <div class="btn-container"><button id="next">Następne</button></div>
+    <script>
+        const question = document.querySelector(".first");
+        const answer = document.querySelector(".second");
+        let IfAnswered = 0
+        answer.classList.add("hidden");
+
+
+        question.addEventListener("click", () => {
+            answer.classList.remove("hidden")
+            answer.classList.add("showed")
+            question.classList.remove("animate")
+            question.classList.add("notAnimate");
+        });
+
+        answer.addEventListener("click", () => {
+            answer.classList.add("hidden")
+            answer.classList.remove("showed")
+            question.classList.add("animate")
+            question.classList.remove("notAnimate");
+        });
+
+        const nextButton = document.getElementById("next");
+
+        function fetchWord(table) {
+            fetch(`get_word.php?table=${table}`)
+                .then(response => response.json())
+                .then(data => {
+                    question.innerHTML = data.fr;
+                    answer.innerHTML = data.pl;
+                    answer.classList.add("hidden")
+                    answer.classList.remove("showed")
+                    question.classList.add("animate")
+                    question.classList.remove("notAnimate");
+                })
+                .catch(error => console.error("Error: ", error));
+        }
+
+        nextButton.addEventListener("click", () => fetchWord('hiszpanski'));
+
+        fetchWord('hiszpanski');
+    </script>
+</body>
+</html>
