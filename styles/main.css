@@ -18,6 +18,8 @@ body {
     font-family: "Nunito", sans-serif;
     font-weight: 200;
     background-color: var(--MainBgc);
+    display: block;
+    width: 100%;
 }
 
 header {
@@ -106,4 +108,28 @@ nav {
 
 .hide{
     display: none !important;
+}
+
+.btn-container{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+#next{
+    font-family: inherit;
+    padding: 1rem;
+    border-radius: 20px;
+    border: none;
+    background-color: #3d4e6b;
+    color: white;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+#next:hover{
+    transition: all .75s;
+    background-color:var(--MainBgc);
 }
